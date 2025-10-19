@@ -1,7 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from "react-native";
 // render content within 'safe area' of the device by using SafeAreaView or to be precise above the notch and status bar.
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function App() {
   return (
@@ -23,12 +22,12 @@ const styles = StyleSheet.create({
   },
 
   searchContainer: {
-    backgroundColor: 'green',
+    backgroundColor: "green",
     padding: 16,
   },
 
   listContainer: {
-    backgroundColor: 'blue',
+    backgroundColor: "blue",
     padding: 16,
     flex: 1,
   },
