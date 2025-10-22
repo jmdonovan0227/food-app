@@ -1,18 +1,13 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, StatusBar } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 // render content within 'safe area' of the device by using SafeAreaView or to be precise above the notch and status bar.
-import { SafeAreaView } from "react-native-safe-area-context";
+import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurants.screen";
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.searchContainer}>
-        <Text>Search</Text>
-      </View>
-
-      <View style={styles.listContainer}>
-        <Text>List</Text>
-      </View>
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <RestaurantsScreen />
+    </SafeAreaProvider>
   );
 }
 
