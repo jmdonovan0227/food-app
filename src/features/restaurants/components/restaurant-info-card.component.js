@@ -1,6 +1,23 @@
 import React from "react";
-import { StyleSheet } from "react-native";
 import { Card } from "react-native-paper";
+import styled from "styled-components/native";
+
+// We can write CSS like styles with styled components!
+const Title = styled.Text`
+  padding: ${(props) => props.theme.spacing.md};
+  color: ${(props) => props.theme.colors.ui.primary};
+`;
+
+// We can style the card component specifically by passing in the card component as the first argument to styled()
+const RestaurantCard = styled(Card)`
+  border-radius: ${(props) => props.theme.spacing.xs};
+  background-color: ${(props) => props.theme.colors.bg.primary};
+`;
+
+const RestaurantCardCover = styled(Card.Cover)`
+  padding: ${(props) => props.theme.spacing.md};
+  background-color: ${(props) => props.theme.colors.bg.primary};
+`;
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
@@ -17,30 +34,12 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
   } = restaurant;
 
   return (
-    <Card elevation={5} style={styles.cardContainer}>
-      <Card.Cover
+    <RestaurantCard elevation={5}>
+      <RestaurantCardCover
         key={"https://picsum.photos/700"}
         source={{ uri: "https://picsum.photos/700" }}
-        style={styles.cardCover}
       />
-      <Card.Title title={name} style={styles.cardTitle} />
-    </Card>
+      <Title>{name}</Title>
+    </RestaurantCard>
   );
 };
-
-const styles = StyleSheet.create({
-  cardContainer: {
-    borderRadius: 2,
-    backgroundColor: "white",
-  },
-
-  cardCover: {
-    borderRadius: 2,
-    padding: 20,
-    backgroundColor: "white",
-  },
-
-  cardTitle: {
-    padding: 16,
-  },
-});
